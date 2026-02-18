@@ -1,4 +1,6 @@
-# Byte-compiled / optimized / DLL files
+# User-Generated Files
+llms.txt
+
 __pycache__/
 *.py[codz]
 *$py.class
