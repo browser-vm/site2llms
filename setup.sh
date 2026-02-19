@@ -18,16 +18,20 @@ echo "📦 Updating package lists..."
 # We run this to ensure we have fresh lists
 sudo apt-get update -y
 
-# --- Step 2: Install Python Dependencies ---
+# --- Step 2: Remove Old Playwright Installations ---
+echo "🧹 Removing old Playwright installations (if any)..."
+pip uninstall -y playwright || true  # Ignore errors if not installed
+
+# --- Step 3: Install Python Dependencies ---
 echo "🐍 Installing Python libraries..."
 # Includes markdownify for the LLM generator
 pip install -r requirements.txt
 
-# --- Step 3: Install Playwright Browsers ---
+# --- Step 4: Install Playwright Browsers ---
 echo "🌐 Downloading Playwright browsers..."
 playwright install chromium
 
-# --- Step 4: Install System Dependencies ---
+# --- Step 5: Install System Dependencies ---
 echo "🏗️  Installing system dependencies (this may take a minute)..."
 sudo playwright install-deps
 
